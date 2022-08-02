@@ -1,5 +1,4 @@
 from django.contrib import admin
-import main
 from django.urls import path, include
 
 urlpatterns = [
