@@ -1,5 +1,5 @@
 """
-Tests form current app models
+Tests main app models.
 """
 from django.test import TestCase
 from main.models import User

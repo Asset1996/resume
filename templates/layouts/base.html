@@ -1,0 +1,15 @@
+<html>
+  <head>
+    {% include 'includes/head.html' %}
+  </head>
+
+  {% include 'includes/header.html' %}
+  <body data-spy="scroll" data-target=".navbar" data-offset="51">
+      {% for message in messages %}
+        {{ message }}
+      {% endfor %}
+      {% block content %}
+      {% endblock %}
+  </body>
+  {% include 'includes/footer.html' %}
+</html>

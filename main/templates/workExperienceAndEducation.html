@@ -1,0 +1,56 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+{% load static %}
+<!-- Qualification Start -->
+<div class="container-fluid py-5" id="qualification">
+    <div class="container">
+        <div class="position-relative d-flex align-items-center justify-content-center">
+            <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Quality</h1>
+            <h1 class="position-absolute text-uppercase text-primary">Education & Expericence</h1>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <h3 class="mb-4">My Education</h3>
+                <div class="border-left border-primary pt-2 pl-4 ml-2">
+                    {% for education in educations %}
+                        <div class="position-relative mb-4">
+                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
+                            <h5 class="font-weight-bold mb-1">{{ education.speciality }}</h5>
+                            <h6 class="font-weight-bold mb-1">{{ education.get_type_display }} | {{ education.get_degree_display }} degree</h6>
+                            <p class="mb-2"><strong>{{ education.institution_name }}</strong> | <small>{{ education.start_date|date:"M/y" }} - 
+                                {% if education.end_date is not None %}
+                                    {{ education.end_date|date:"M/y" }} ({{ education.end_date|timeuntil:education.start_date }})
+                                {% else %}
+                                    present ({{ education.start_date|timesince }})
+                                {% endif %}
+                                </small></p>
+                            <p>{{ education.course_description }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h3 class="mb-4">My Expericence</h3>
+                <div class="border-left border-primary pt-2 pl-4 ml-2">
+                    {% for work in works %}
+                        <div class="position-relative mb-4">
+                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
+                            <h5 class="font-weight-bold mb-1">{{ work.position }}</h5>
+                            <p class="mb-2"><strong>{{ work.company_name }}</strong> | <small>{{ work.start_date|date:"M/y" }} - 
+                                {% if work.end_date is not None %}
+                                    {{ work.end_date|date:"M/y" }} ({{ work.end_date|timeuntil:work.start_date }})
+                                {% else %}
+                                    present ({{ work.start_date|timesince }})
+                                {% endif %}
+                                </small></p>
+                            <p>{{ work.work_description }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Qualification End -->
+{% endblock %}

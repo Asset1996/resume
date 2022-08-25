@@ -1,0 +1,34 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'main:home' %}">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'main:about_me' %}">About Me<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'main:about_website' %}">About Website<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'main:work_experience_and_education' %}">Experience|Education<span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+          {% if user.is_authenticated %}
+            <div class="form-inline my-2 my-lg-0">
+              <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'user:logout' %}">Logout</a>
+            </div>
+          {% else %}
+            <div class="form-inline my-2 my-lg-0">
+              <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'user:login' %}">Login</a>
+            </div>
+            <div class="form-inline my-2 my-lg-0">
+              <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'user:register' %}">Register</a>
+            </div>
+          {% endif %}
+        </div>
+      </nav>
+<header>

@@ -1,3 +1,6 @@
+"""
+Models page for main app.
+"""
 from django.db import models
 from django.contrib.auth.models import (
     AbstractBaseUser,
@@ -6,8 +9,11 @@ from django.contrib.auth.models import (
 )
 
 class UserManager(BaseUserManager):
-    """Manager for users."""
-
+    """
+    Manager for users.
+    Need to customize to override the create_user and 
+    create_superuser by email field (not username).
+    """
     def create_user(self, email, password=None, **extra_fields):
         """Create, save and return a new user."""
         if not email:
@@ -38,14 +44,13 @@ class User(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'email'
 
 
-
 class WorkExperience(models.Model):
     """Model that describes work experience of the user"""
     class Meta():
         ordering = ['end_date']
     
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Name of the user")
-    company_name = models.CharField(max_length=50, verbose_name="Name of the company")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="User name")
+    company_name = models.CharField(max_length=50, verbose_name="Company name")
     position = models.CharField(max_length=50, verbose_name="Position of the user")
     start_date = models.DateField(verbose_name="The date when the user started working")
     end_date = models.DateField(default=None, blank=True, null=True, verbose_name="The date when the user ended working")
@@ -54,3 +59,37 @@ class WorkExperience(models.Model):
     def __str__(self) -> str:
         return self.position
 
+class Education(models.Model):
+    """Model that describes the education of the user"""
+    types = (
+        ('un', 'University'), 
+        ('cl', 'College'), 
+    )
+    degrees = (
+        ('ms', 'Masters'), 
+        ('bc', 'Bachelors'), 
+        ('hs', 'High school'), 
+    )
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="User name")
+    institution_name = models.CharField(max_length=50, verbose_name="Institution name")
+    speciality = models.CharField(max_length=50, verbose_name="Specialty of user")
+    type = models.CharField(max_length=50, verbose_name="Type of education", choices=types)
+    degree = models.CharField(max_length=50, verbose_name="Students degree", choices=degrees)
+    start_date = models.DateField(verbose_name="The date when the user started")
+    end_date = models.DateField(default=None, blank=True, null=True, verbose_name="The date when the user graduated")
+    course_description = models.CharField(default=None, blank=True, null=True, max_length=250, verbose_name="Brief study description")
+
+    class Meta():
+        ordering = ['end_date']
+
+    def __str__(self) -> str:
+        return self.degree
+
+class Test(models.Model):
+
+    name = models.CharField(max_length=50, verbose_name="Test name")
+    dirthday = models.DateField(verbose_name="Test bday")
+
+    def __str__(self) -> str:
+        return self.name
