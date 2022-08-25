@@ -8,7 +8,7 @@ from django.contrib.auth.admin import UserAdmin
 class CustomUserAdmin(UserAdmin):
     """Custom UserAdmin class."""
     ordering = ["id"]
-    list_display = ["email", "name"]
+    list_display = ["id", "email", "name"]
     search_fields = ["email", "name"]
     empty_value_display = "--empty--"
     fieldsets = (

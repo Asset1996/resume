@@ -59,16 +59,19 @@ class WorkExperience(models.Model):
     def __str__(self) -> str:
         return self.position
 
+
 class Education(models.Model):
     """Model that describes the education of the user"""
     types = (
         ('un', 'University'), 
         ('cl', 'College'), 
+        ('cl', 'Certification'), 
     )
     degrees = (
         ('ms', 'Masters'), 
         ('bc', 'Bachelors'), 
         ('hs', 'High school'), 
+        ('ms', 'No degree'), 
     )
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="User name")
@@ -85,11 +88,3 @@ class Education(models.Model):
 
     def __str__(self) -> str:
         return self.degree
-
-class Test(models.Model):
-
-    name = models.CharField(max_length=50, verbose_name="Test name")
-    dirthday = models.DateField(verbose_name="Test bday")
-
-    def __str__(self) -> str:
-        return self.name

@@ -28,8 +28,8 @@ class WorkExperienceAndEducationView(TemplateView):
     template_name = "workExperienceAndEducation.html"
     def get_context_data(self, **kwargs):
        context = super(WorkExperienceAndEducationView, self).get_context_data(**kwargs)
-       works = WorkExperience.objects.filter(user_id=3).order_by('-start_date')
-       educations = Education.objects.filter(user_id=3).order_by('-start_date')
+       works = WorkExperience.objects.filter(user_id=1).order_by('-start_date')
+       educations = Education.objects.filter(user_id=1).order_by('-start_date')
        context['works'] = works
        context['educations'] = educations
        return context
