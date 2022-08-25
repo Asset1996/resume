@@ -65,13 +65,13 @@ class Education(models.Model):
     types = (
         ('un', 'University'), 
         ('cl', 'College'), 
-        ('cl', 'Certification'), 
+        ('cr', 'Certification'), 
     )
     degrees = (
         ('ms', 'Masters'), 
         ('bc', 'Bachelors'), 
         ('hs', 'High school'), 
-        ('ms', 'No degree'), 
+        ('nd', 'No degree'), 
     )
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="User name")
