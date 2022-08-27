@@ -8,13 +8,15 @@ from django.contrib.auth.admin import UserAdmin
 class CustomUserAdmin(UserAdmin):
     """Custom UserAdmin class."""
     ordering = ["id"]
-    list_display = ["id", "email", "name"]
-    search_fields = ["email", "name"]
+    list_display = ["id", "email", "name_en"]
+    search_fields = ["email", "name_en"]
     empty_value_display = "--empty--"
     fieldsets = (
         (None, {
             "fields": (
-                "email", "name", "password",
+                "email", "name_en", "name_ru", "surname_en", "surname_ru", 
+                "password", "skills", "degree", "birthday", "phone", "instagram",
+                "linkedin", "github", "experience", "address_en", "address_ru"
             ),
         }),
         ("Permissions", {
@@ -34,10 +36,14 @@ class CustomUserAdmin(UserAdmin):
                 "email", 
                 "password1", 
                 "password2", 
-                "name", 
+                "name_en", 
+                "name_ru", 
+                "surname_en", 
+                "surname_ru",
                 "is_active", 
                 "is_staff", 
                 "is_superuser", 
+                "skills"
             ),
         }),
     )
@@ -46,14 +52,14 @@ class CustomUserAdmin(UserAdmin):
 class WorkExperienceAdmin(admin.ModelAdmin):
     """Custom WorkExperience models WorkExperienceAdmin class."""
     ordering = ["id"]
-    list_display = ["user", "company_name", "position"]
-    search_fields = ["user__email", "company_name", "position"]
+    list_display = ["user", "company_name_en", "position_en"]
+    search_fields = ["user__email", "company_name_en", "position_en"]
     empty_value_display = "--empty--"
 
 class EducationAdmin(admin.ModelAdmin):
     """Custom Education models EducationAdmin class."""
     ordering = ["id"]
-    list_display = ["user", "institution_name", "speciality"]
+    list_display = ["user", "institution_name_en", "speciality_en"]
     search_fields = ["user__email", "institution_name", "speciality"]
     empty_value_display = "--empty--"
 

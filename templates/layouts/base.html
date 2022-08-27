@@ -3,7 +3,9 @@
     {% include 'includes/head.html' %}
   </head>
 
-  {% include 'includes/header.html' %}
+  <header>
+    {% include 'includes/header.html' %}
+  </header>
   <body data-spy="scroll" data-target=".navbar" data-offset="51">
       {% for message in messages %}
         {{ message }}
@@ -11,5 +13,7 @@
       {% block content %}
       {% endblock %}
   </body>
-  {% include 'includes/footer.html' %}
+  <footer class="page-footer font-small cyan darken-3">
+    {% include 'includes/footer.html' %}
+  </footer>
 </html>

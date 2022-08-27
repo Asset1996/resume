@@ -1,34 +1,51 @@
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'main:home' %}">Home</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'main:about_me' %}">About Me<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'main:about_website' %}">About Website<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'main:work_experience_and_education' %}">Experience|Education<span class="sr-only">(current)</span></a>
-            </li>
-          </ul>
-          {% if user.is_authenticated %}
-            <div class="form-inline my-2 my-lg-0">
-              <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'user:logout' %}">Logout</a>
-            </div>
-          {% else %}
-            <div class="form-inline my-2 my-lg-0">
-              <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'user:login' %}">Login</a>
-            </div>
-            <div class="form-inline my-2 my-lg-0">
-              <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'user:register' %}">Register</a>
-            </div>
-          {% endif %}
+{% load i18n %}
+{% get_current_language as CURRENT_LANGUAGE %}
+{% get_available_languages as AVAILABLE_LANGUAGES %}
+{% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{% url 'main:home' %}">{% trans 'Home' %}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'main:about_me' %}">{% trans 'About Me' %}<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'main:website_stack' %}">{% trans 'Website stack' %}<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'main:work_experience_and_education' %}">{% trans 'Experience | Education' %}<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <div class="form-inline my-2 my-lg-0 languages">
+      <div class="dropdown show">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {% trans "Language" %}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        {% for language in languages %}
+          <form action="{% url 'set_language' %}" method="POST">{% csrf_token %}
+            <input type="hidden" name="text" value="{{ redirect_to }}">
+            <input class="dropdown-item" type="submit" name="language" value="{{language.code}}">
+          </form>
+        {% endfor %}
         </div>
-      </nav>
-<header>
+      </div>
+    </div>
+    {% if user.is_authenticated %}
+      <div class="form-inline my-2 my-lg-0">
+        <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'user:logout' %}">{% trans 'Logout' %}</a>
+      </div>
+    {% else %}
+      <div class="form-inline my-2 my-lg-0">
+        <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'user:login' %}">{% trans 'Login' %}</a>
+      </div>
+      <div class="form-inline my-2 my-lg-0">
+        <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'user:register' %}">{% trans 'Register' %}</a>
+      </div>
+    {% endif %}
+  </div>
+</nav>

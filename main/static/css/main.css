@@ -1,0 +1,49 @@
+.footer-icons{
+    margin-left: 20px; 
+    margin-right: 20px; 
+    color: #000;
+    text-decoration: none !important;
+}
+
+.footer-icons:hover{
+    color: rgb(121, 121, 121);
+}
+
+@media screen and (min-width: 1200px) {
+    .login-register{
+        margin: 0 auto;
+        width: 30%;
+        padding-top: 50px;
+    }
+}
+@media (max-width: 1199px) and (min-width: 768px){
+    .login-register{
+        margin: 0 auto;
+        width: 50%;
+        padding-top: 50px;
+    }
+}
+
+@media (max-width: 767px) and (min-width: 576px){
+    .login-register{
+        margin: 0 auto;
+        width: 60%;
+        padding-top: 50px;
+    }
+}
+
+@media (max-width: 767px) and (min-width: 576px){
+    .login-register{
+        margin: 0 auto;
+        width: 70%;
+        padding-top: 50px;
+    }
+}
+
+@media (max-width: 575px){
+    .login-register{
+        margin: 0 auto;
+        width: 90%;
+        padding-top: 50px;
+    }
+}

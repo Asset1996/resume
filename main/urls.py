@@ -2,18 +2,19 @@
 Urls for main app.
 """
 from django.urls import path
+from django.utils.translation import gettext_lazy as _
 from . import views
 
 app_name = "main"
 
 urlpatterns = [
     path('', views.IndexView.as_view(), name='home'),
-    path('about-me', views.AboutMeView.as_view(), name='about_me'),
-    path('about-website', views.AboutWebsiteView.as_view(), name='about_website'),
+    path(_('about-me'), views.AboutMeView.as_view(), name='about_me'),
+    path(_('website-stack'), views.WebsiteStackView.as_view(), name='website_stack'),
     path(
-        'work-experience-education', 
+        _('work-experience-education'), 
         views.WorkExperienceAndEducationView.as_view(), 
         name='work_experience_and_education'
     ),
-    path('download-cv', views.DownloadFile, name='download-cv'),
+    path(_('download-cv'), views.DownloadFile, name='download-cv'),
 ]
