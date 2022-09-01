@@ -1,0 +1,65 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+{% load static %}
+{% load i18n %}
+<!-- Chat Start -->
+<div class="container-fluid py-5" id="about">
+    <div class="container">
+        <form id="chat-form">
+            <div class="form-group">
+                <label for="text-input">Input the text</label>
+                <input id="text-input" class="form-control form-control-lg" type="text" placeholder="Type message here">
+            </div>
+        </form>
+        <div id='messages'>
+            {% for message in conversation_messages %}
+                <div>
+                    <p>
+                        {% if message.user %}
+                            {{message.user}}
+                        {% else %}
+                            AnonymousUser
+                        {% endif %}
+                        : {{message.content}}
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- Chat End -->
+<script>
+    let url = `ws://${window.location.host}/chat/{{room_name}}`
+
+    const chatSocket = new WebSocket(url)
+
+    chatSocket.onmessage = function(e) {
+        let data = JSON.parse(e.data)
+        console.log('Data: ', data)
+
+        if(data.type == 'message'){
+            let messages = document.getElementById('messages')
+            messages.insertAdjacentHTML('beforeend', `
+                <div>
+                    <p>${data.message}</p>
+                </div>
+            `)
+        }
+    }
+
+    chatSocket.onclose = function(e) {
+        console.error('Chat socket closed unexpectedly');
+    };
+
+    document.querySelector('#text-input').focus();
+    $('#chat-form').on('submit', function(e){
+        e.preventDefault();
+        let message = $('#text-input').val()
+        $('#text-input').val('')
+        console.log(message)
+        chatSocket.send(JSON.stringify({
+            'message': message
+        }))
+    });
+</script>
+{% endblock %}

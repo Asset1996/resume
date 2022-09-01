@@ -4,6 +4,7 @@ Tests main app models.
 from django.test import TestCase
 from main.models import User
 
+
 class ModelTests(TestCase):
 
     def test_create_user(self):
@@ -39,7 +40,7 @@ class ModelTests(TestCase):
 
     def test_new_user_without_email_raises_value_error(self):
         """
-        Test to ensure that creating new 
+        Test to ensure that creating new
         user without email raises value error.
         """
         with self.assertRaises(ValueError):

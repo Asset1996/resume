@@ -9,6 +9,29 @@
     color: rgb(121, 121, 121);
 }
 
+.view-title {
+    margin: 0 auto;
+    padding: 20px 10px;
+}
+.view-title>h3, .view-title>a {
+    display: inline-block;
+}
+.float-right{
+    float: right;
+}
+.float-left{
+    float: left;
+}
+
+.invisible-button{
+    border: none;
+    background-color: transparent;
+    color: #0BCEAF;
+}
+.invisible-button:hover{
+    color: #08927b;
+}
+
 @media screen and (min-width: 1200px) {
     .login-register{
         margin: 0 auto;

@@ -8,22 +8,24 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-27 11:01+0500\n"
-"PO-Revision-Date: 2022-08-27 06:04+0000\n"
+"POT-Creation-Date: 2022-09-01 13:14+0500\n"
+"PO-Revision-Date: 2022-09-01 06:19+0000\n"
 "Last-Translator: Anonymous User <admin@mail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.9.8\n"
 
-#: app/settings.py:108
+#: app/settings.py:123
 msgid "English"
 msgstr "Английский"
 
-#: app/settings.py:109
+#: app/settings.py:124
 msgid "Russian"
 msgstr "Русский"
 
@@ -35,110 +37,198 @@ msgstr "админ/"
 msgid "user/"
 msgstr "пользователь/"
 
-#: main/models.py:56
+#: app/urls.py:16
+msgid "chat/"
+msgstr "чат/"
+
+#: chat/templates/list.html:9 templates/includes/header.html:23
+msgid "Real time chat"
+msgstr "Чат в реальном времени"
+
+#: chat/templates/list.html:12
+#, fuzzy
+#| msgid "Chat name"
+msgid "Type chat name"
+msgstr "Название чата"
+
+#: chat/templates/list.html:13
+#, fuzzy
+#| msgid "chat/"
+msgid "New chat"
+msgstr "чат/"
+
+#: chat/templates/list.html:21
+msgid "Chat name"
+msgstr "Название чата"
+
+#: chat/templates/list.html:22
+msgid "Date of creation"
+msgstr "Дата создания"
+
+#: chat/templates/list.html:23
+msgid "Online users"
+msgstr "Пользователи онлайн"
+
+#: chat/templates/list.html:24
+#, fuzzy
+#| msgid "Education"
+msgid "Actions"
+msgstr "Образование"
+
+#: chat/views.py:50
+#, fuzzy
+#| msgid "Chat name"
+msgid "Chat name is required"
+msgstr "Название чата"
+
+#: chat/views.py:54
+msgid "Chat successfully created"
+msgstr ""
+
+#: main/models.py:54
 #: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1638
 msgid "Email address"
 msgstr "Адрес электронной почты"
 
-#: main/models.py:57
+#: main/models.py:55
 msgid "Users name EN"
 msgstr "Имя пользователя АНГ"
 
-#: main/models.py:58
+#: main/models.py:56
 msgid "Users name RU"
 msgstr "Имя пользователя РУС"
 
-#: main/models.py:59
+#: main/models.py:57
 msgid "Users surname EN"
 msgstr "Фамилия пользователя АНГ"
 
-#: main/models.py:60
+#: main/models.py:58
 msgid "Users surname RU"
 msgstr "Фамилия пользователя РУС"
 
-#: main/models.py:64
+#: main/models.py:62
 msgid "Users skills"
 msgstr "Навыки пользователя"
 
-#: main/models.py:65
+#: main/models.py:63
 msgid "Date of birth"
 msgstr "Дата рождения"
 
-#: main/models.py:66
+#: main/models.py:64
 msgid "Phone number"
 msgstr "Номер телефона"
 
-#: main/models.py:67
+#: main/models.py:65
 msgid "Instagram"
 msgstr "Instagram"
 
-#: main/models.py:68
+#: main/models.py:66
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: main/models.py:69
+#: main/models.py:67
 msgid "Github"
 msgstr "Github"
 
-#: main/models.py:70
+#: main/models.py:68
 #, fuzzy
 #| msgid "Expericence"
 msgid "Experience"
 msgstr "Опыт работы"
 
-#: main/models.py:71
+#: main/models.py:69
 msgid "Users degree"
 msgstr "Степень"
 
-#: main/models.py:73
+#: main/models.py:71
 msgid "Address EN"
 msgstr "Адрес АНГ"
 
-#: main/models.py:74
+#: main/models.py:72
 msgid "Address RU"
 msgstr "Адрес РУС"
 
-#: main/models.py:115
+#: main/models.py:84 main/models.py:113
 msgid "User name"
 msgstr "Имя пользователя"
 
-#: main/models.py:116
+#: main/models.py:85
+msgid "Company name EN"
+msgstr "Наименование компаний АНГ"
+
+#: main/models.py:86
+msgid "Company name RU"
+msgstr "Наименование компаний РУС"
+
+#: main/models.py:87
+msgid "Position of the user EN"
+msgstr "Позиция пользователя АНГ"
+
+#: main/models.py:88
+msgid "Position of the user RU"
+msgstr "Позиция пользователя РУС"
+
+#: main/models.py:89
+#, fuzzy
+#| msgid "The date when the user started"
+msgid "The date when the user started working"
+msgstr "Дата поступления"
+
+#: main/models.py:90
+#, fuzzy
+#| msgid "The date when the user graduated"
+msgid "The date when the user ended working"
+msgstr "Дата выпуска"
+
+#: main/models.py:91
+#, fuzzy
+#| msgid "Brief course description EN"
+msgid "Brief work description EN"
+msgstr "Краткое описание курса АНГ"
+
+#: main/models.py:92
+#, fuzzy
+#| msgid "Brief course description RU"
+msgid "Brief work description RU"
+msgstr "Краткое описание курса РУС"
+
+#: main/models.py:114
 msgid "Institution name EN"
 msgstr "Наименование ВУЗа АНГ"
 
-#: main/models.py:117
+#: main/models.py:115
 msgid "Institution name RU"
 msgstr "Наименование ВУЗа РУС"
 
-#: main/models.py:118
+#: main/models.py:116
 msgid "Specialty EN"
 msgstr "Специальность АНГ"
 
-#: main/models.py:119
+#: main/models.py:117
 msgid "Specialty RU"
 msgstr "Специальность РУС"
 
-#: main/models.py:120
+#: main/models.py:118
 msgid "Type of education"
 msgstr "Тип образования"
 
-#: main/models.py:121
+#: main/models.py:119
 msgid "Students degree"
 msgstr "Степень"
 
-#: main/models.py:122
+#: main/models.py:120
 msgid "The date when the user started"
 msgstr "Дата поступления"
 
-#: main/models.py:123
+#: main/models.py:121
 msgid "The date when the user graduated"
 msgstr "Дата выпуска"
 
-#: main/models.py:124
+#: main/models.py:122
 msgid "Brief course description EN"
 msgstr "Краткое описание курса АНГ"
 
-#: main/models.py:125
+#: main/models.py:123
 msgid "Brief course description RU"
 msgstr "Краткое описание курса РУС"
 
@@ -218,8 +308,8 @@ msgstr "Развернут в:"
 msgid "I'm"
 msgstr "Я"
 
-#: main/templates/home.html:15 templates/includes/footer.html:29
-#: templates/includes/head.html:12
+#: main/templates/home.html:15 templates/includes/footer.html:28
+#: templates/includes/head.html:16
 msgid "Asset Khamid"
 msgstr "Асет Хамид"
 
@@ -263,39 +353,39 @@ msgstr "опыт-работы-и-образование"
 msgid "download-cv"
 msgstr "скачать-резюме"
 
-#: templates/includes/footer.html:28
+#: templates/includes/footer.html:27
 msgid "Designed by:"
 msgstr "Разработчик:"
 
-#: templates/includes/header.html:7
+#: templates/includes/header.html:6
 msgid "Home"
 msgstr "Главное"
 
-#: templates/includes/header.html:15
+#: templates/includes/header.html:14
 msgid "About Me"
 msgstr "Обо мне"
 
-#: templates/includes/header.html:18
+#: templates/includes/header.html:17
 msgid "Website stack"
 msgstr "Стэк вебсайта"
 
-#: templates/includes/header.html:21
+#: templates/includes/header.html:20
 msgid "Experience | Education"
 msgstr "Опыт работы | Образование"
 
-#: templates/includes/header.html:27
+#: templates/includes/header.html:29
 msgid "Language"
 msgstr "Язык"
 
-#: templates/includes/header.html:41
+#: templates/includes/header.html:43
 msgid "Logout"
 msgstr "Выход"
 
-#: templates/includes/header.html:45
+#: templates/includes/header.html:47
 msgid "Login"
 msgstr "Вход"
 
-#: templates/includes/header.html:48
+#: templates/includes/header.html:50
 msgid "Register"
 msgstr "Регистрация"
 
@@ -409,8 +499,8 @@ msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/core/validators.py:269
 msgid ""
-"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or"
-" hyphens."
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
+"hyphens."
 msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/core/validators.py:278
@@ -596,15 +686,15 @@ msgstr ""
 #: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1288
 #, python-format
 msgid ""
-"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD "
-"HH:MM[:ss[.uuuuuu]][TZ] format."
+"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[."
+"uuuuuu]][TZ] format."
 msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1292
 #, python-format
 msgid ""
-"“%(value)s” value has the correct format (YYYY-MM-DD "
-"HH:MM[:ss[.uuuuuu]][TZ]) but it is an invalid date/time."
+"“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) but it is an invalid date/time."
 msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1296
@@ -623,8 +713,8 @@ msgstr "Десятичное число"
 #: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1585
 #, python-format
 msgid ""
-"“%(value)s” value has an invalid format. It must be in [DD] "
-"[[HH:]MM:]ss[.uuuuuu] format."
+"“%(value)s” value has an invalid format. It must be in [DD] [[HH:]MM:]ss[."
+"uuuuuu] format."
 msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1588
@@ -779,8 +869,7 @@ msgid "Many-to-many relationship"
 msgstr ""
 
 #. Translators: If found as last label character, these punctuation
-#. characters will prevent the default label_suffix to be appended to the
-#. label
+#. characters will prevent the default label_suffix to be appended to the label
 #: venv/lib/python3.8/site-packages/django/forms/boundfield.py:150
 msgid ":?.!"
 msgstr ""
@@ -830,8 +919,7 @@ msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/forms/fields.py:553
 #, python-format
-msgid ""
-"Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
 msgid_plural ""
 "Ensure this filename has at most %(max)d characters (it has %(length)d)."
 msgstr[0] ""
@@ -938,8 +1026,7 @@ msgid "The inline value did not match the parent instance."
 msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/forms/models.py:1193
-msgid ""
-"Select a valid choice. That choice is not one of the available choices."
+msgid "Select a valid choice. That choice is not one of the available choices."
 msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/forms/models.py:1311
@@ -1399,11 +1486,11 @@ msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/views/csrf.py:124
 msgid ""
-"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or"
-" including the “Referrer-Policy: no-referrer” header, please remove them. "
-"The CSRF protection requires the “Referer” header to do strict referer "
-"checking. If you’re concerned about privacy, use alternatives like <a "
-"rel=\"noreferrer\" …> for links to third-party sites."
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
+"including the “Referrer-Policy: no-referrer” header, please remove them. The "
+"CSRF protection requires the “Referer” header to do strict referer checking. "
+"If you’re concerned about privacy, use alternatives like <a rel=\"noreferrer"
+"\" …> for links to third-party sites."
 msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/views/csrf.py:132
@@ -1454,8 +1541,8 @@ msgstr ""
 #: venv/lib/python3.8/site-packages/django/views/generic/dates.py:594
 #, python-format
 msgid ""
-"Future %(verbose_name_plural)s not available because "
-"%(class_name)s.allow_future is False."
+"Future %(verbose_name_plural)s not available because %(class_name)s."
+"allow_future is False."
 msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/views/generic/dates.py:628
@@ -1511,10 +1598,10 @@ msgstr ""
 #: venv/lib/python3.8/site-packages/django/views/templates/default_urlconf.html:222
 #, python-format
 msgid ""
-"You are seeing this page because <a "
-"href=\"https://docs.djangoproject.com/en/%(version)s/ref/settings/#debug\" "
-"target=\"_blank\" rel=\"noopener\">DEBUG=True</a> is in your settings file "
-"and you have not configured any URLs."
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener"
+"\">DEBUG=True</a> is in your settings file and you have not configured any "
+"URLs."
 msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/views/templates/default_urlconf.html:230

@@ -11,13 +11,16 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'main:about_me' %}">{% trans 'About Me' %}<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'main:about_me' %}">{% trans 'About Me' %}</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'main:website_stack' %}">{% trans 'Website stack' %}<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'main:website_stack' %}">{% trans 'Website stack' %}</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'main:work_experience_and_education' %}">{% trans 'Experience | Education' %}<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'main:work_experience_and_education' %}">{% trans 'Experience | Education' %}</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'chat:chat_list' %}">{% trans 'Real time chat' %}</a>
       </li>
     </ul>
     <div class="form-inline my-2 my-lg-0 languages">

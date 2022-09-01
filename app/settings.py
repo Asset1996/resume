@@ -25,6 +25,7 @@ ALLOWED_HOSTS = ['34.116.143.178', '10.186.0.2', '127.0.0.1', 'localhost']
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -33,9 +34,21 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
     'user.apps.UserConfig',
+    'chat.apps.ChatConfig',
     'ckeditor',
     'rosetta',
 ]
+
+ASGI_APPLICATION = 'app.asgi.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('localhost', 6379)],
+        },
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -85,16 +98,20 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': """django.contrib.auth.password_validation.
+                UserAttributeSimilarityValidator""",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': """django.contrib.auth.password_validation.
+                MinimumLengthValidator""",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': """django.contrib.auth.password_validation.
+                CommonPasswordValidator""",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': """django.contrib.auth.password_validation.
+                NumericPasswordValidator""",
     },
 ]
 
