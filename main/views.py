@@ -58,7 +58,7 @@ class WorkExperienceAndEducationView(TemplateView):
                 position_{1} as position,
                 work_description_{1} as work_description
             FROM main_workexperience WHERE user_id={0}
-            ORDER BY start_date
+            ORDER BY start_date DESC
             """).format(1, lang)
         )
         educations = Education.objects.raw(
@@ -67,7 +67,7 @@ class WorkExperienceAndEducationView(TemplateView):
                 institution_name_{1} as institution_name,
                 course_description_{1} as course_description
             FROM main_education WHERE user_id={0}
-            ORDER BY start_date
+            ORDER BY start_date DESC
             """).format(1, lang)
         )
         context['works'] = works
