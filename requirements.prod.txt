@@ -11,3 +11,4 @@ django-js-asset==2.0.0
 django-rosetta==0.9.8
 channels==3.0.5
 channels-redis==3.4.1
+uvicorn=0.18.3
