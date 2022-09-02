@@ -29,7 +29,10 @@
 </div>
 <!-- Chat End -->
 <script>
-    let url = `ws://${window.location.host}/chat/{{room_name}}`
+    let port = "{{'DEBUG'|env}}" == 'true' ? '' : ':8001'
+    let ws_scheme = window.location.protocol == 'https:' ? 'wss' : 'ws'
+    let url = `${ws_scheme}://${window.location.host}${port}/chat/{{room_name}}`
+    console.log(url)
 
     const chatSocket = new WebSocket(url)
 
