@@ -29,9 +29,9 @@
 </div>
 <!-- Chat End -->
 <script>
-    let port = "{{'DEBUG'|env}}" == 'true' ? '' : ':8001'
+    let port = "{{'DEBUG'|env}}" == 'true' ? ':8000' : ':8001'
     let ws_scheme = window.location.protocol == 'https:' ? 'wss' : 'ws'
-    let url = `${ws_scheme}://${window.location.host}${port}/chat/{{room_name}}`
+    let url = `${ws_scheme}://127.0.0.1${port}/chat/{{room_name}}`
     console.log(url)
 
     const chatSocket = new WebSocket(url)
